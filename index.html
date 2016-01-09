@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ATP Career Analysis</title>
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/d3.min.js"></script>
+		<script type="text/javascript" src="js/search.js"></script>
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css"></style>
+	<body>
+		<div class="container">
+			<div id="header" class="container">
+				<div id="preface">
+					<h1>ATP Player Career Trajectories</h1>
+					<p>This application is written in PHP/MySQL, D3.js, and JQuery. I started this project because I wanted to learn more about data visualization and server-side programming. I love tennis, so it was a great learning experience that turned out to be really fun. Thanks for checking it out!</p>
+					<p>You may search for the ranking trend for any player in the ATP top 175 from 1973 (the beginning of the Open Era) until 2015. I chose the number 175 as the upper bound for the rankings (as opposed to say, 200 or 500) because it appears to include the most successful and statistically interesting players. Keep in mind that the projected rankings of active players are based on similarities to the players whose ranking trajectories most closely match their own. This inexact method will lead to some unintuitive predictions (see Roger Federer) in part because the player is venturing into (pardon the pun) uncharted territory.</p>
+					<p>By <a href="http://ryomayes.com">Ryo Mayes</a>. This project was partially inspired by FiveThirtyEight's totally rad <a href="http://projects.fivethirtyeight.com/carmelo/" style="color:steeblue">CARMELO NBA Projections</a>. Thanks a ton to <a href="https://github.com/JeffSackmann/tennis_atp" style="color: steelblue">Jeff Sackmann</a> for sharing his phenomenal dataset. Please hit me up with any questions or feedback.</p>
+				</div>
+			</div>
+			<div id="content-wrapper" class="container">
+				<div id="input-container">
+					<div id="intro">Search for a player: </div>
+					<div id="input-wrapper">
+						<input type="text" id="search" class="form-control" autocomplete="off" placeholder="eg. Ivan Lendl">
+						<ul class="list-group" id="results">
+						</ul>
+					</div>
+					<button id="random">Random Player</button>	
+				</div>
+				<div id="content-container", class="container">
+					<div id="chart-container" class="container">
+						<div id="chart-wrapper", class="container">
+							<div id="player-description">
+								<h4 id="name">Joe Average</h4>
+								<p class="description">Tier:<span id="tier"></span></p>
+								<p class="description">Total years in the top 175:<span id="totalyears"></span></p>
+								<p class="description">Peak year-end ranking:<span id="highestranking"></span></p>
+								<p class="description">Age at peak ranking:<span id="highestrankingage"></span></p>
+								<p class="description">Age at most recent year-end ranking:<span id="oldestage"></span></p>
+							</div>
+							<svg class="chart"></svg>
+						</div>
+						<h3>Top 3 Most Similar Players by Career Trajectory</h3>
+						<div id="comp-container", class="container">
+							<div class="wrap cont0"></div>
+							<div class="wrap cont1"></div>
+							<div class="wrap cont2"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/plot.js"></script>
+</html>
