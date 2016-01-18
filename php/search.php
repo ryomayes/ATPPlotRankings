@@ -12,7 +12,7 @@
 		
 		if (strlen($search_string) >= 1 && $search_string !== ' ') {
 
-			$query = "SELECT * FROM atp_players where name LIKE '%".$search_string."%'";
+			$query = "SELECT * FROM atp_players where name LIKE '$search_string%' ORDER BY name";
 			
 
 			$result = $sql_db->query($query);
